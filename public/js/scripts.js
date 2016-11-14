@@ -1,4 +1,4 @@
-var socket = io.connect('https://chat-server-heroku.herokuapp.com/');
+var socket = io.connect('https://limitless-woodland-46917.herokuapp.com/');
 socket.on('connect', addUser);
 socket.on('updatechat', processMessage);
 socket.on('updateusers', updateUserList);
@@ -7,20 +7,20 @@ socket.on('updateusers', updateUserList);
 // the adduser method on the chat server.
 function addUser() {
     var userNamePromt = swal({
-        title: "Please enter your username",
+        title: "/>_ник",
         type: "input",
         showCancelButton: false,
         closeOnConfirm: false,
         animation: "slide-from-top",
-        inputPlaceholder: "e.g Gavin Belson or Mr.Robot"
+        inputPlaceholder: ""
     }, function(inputValue){
         if (inputValue === false) return false;
         if (inputValue === "") {
-             swal.showInputError("Hey, we need you to enter your username!");
+             swal.showInputError("ошибка");
              return false
          }
          inputValue = inputValue.replace(/<(?:.|\n)*?>/gm, '');
-         swal("Nice!", "Your username is " + inputValue, "success");
+         swal("вы", " " + inputValue, "success");
          socket.emit('adduser', inputValue);
      });
 
